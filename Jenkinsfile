@@ -6,7 +6,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'Maven') {
-                    sh '/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven/bin/mvn -f pom.xml clean install package'
+                    sh 'mvn clean compile'
                 }
             }
         }
@@ -19,4 +19,14 @@ pipeline {
                 }
             }
         }
+
+
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'Maven') {
+                    sh 'scp -o StrictHostKeyChecking=no target/*.war root@192.168.2.36:/opt/'
+                }
+            }
+        }
     }
+}
