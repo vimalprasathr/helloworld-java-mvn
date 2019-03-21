@@ -5,7 +5,7 @@ node{
    stage('Compile-Package'){
       // Get maven home path
       def mvnHome =  tool name: 'Maven', type: 'maven'   
-      sh "clean install package"
+      sh "/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven/bin/mvn -f pom.xml clean install package"
    }
    stage('Deploy to Tomcat'){
       
