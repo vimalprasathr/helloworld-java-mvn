@@ -6,7 +6,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'Maven') {
-                    sh 'mvn -f pom.xml clean install package'
+                    sh 'clean install package'
                 }
             }
         }
