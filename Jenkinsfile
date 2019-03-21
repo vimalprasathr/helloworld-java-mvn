@@ -19,11 +19,3 @@ pipeline {
                 }
             }
         }
-        
-stage('Deployment Stage'){
-      
-      sshagent(['tomcat-dev']) {
-         sh 'scp -o StrictHostKeyChecking=no target/*.war root@192.168.2.36:/opt/'
-      }
-   }
-   
