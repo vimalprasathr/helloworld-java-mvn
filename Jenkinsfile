@@ -9,7 +9,7 @@ node{
    }
    stage('Deploy to Tomcat'){
       
-      sshPublisher alwaysPublishFromMaster: true, continueOnError: true, failOnError: true, publishers: [sshPublisherDesc(configName: '192.168.2.36', sshCredentials: [encryptedPassphrase: '{AQAAABAAAAAQvcHNfQ9cZHFEti7nmOQ74pbgY0T4Yjpo4wxvdWh+GQY=}', key: '', keyPath: '', username: 'root'], transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: '**/*.war\'')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)]
+      sshPublisher(publishers: [sshPublisherDesc(configName: '192.168.2.36', sshCredentials: [encryptedPassphrase: '{AQAAABAAAAAQDYOTL1ApjBBsaSUrlnLnHo0MAxtugGV5QLVMdLn+4TQ=}', key: '', keyPath: '', username: 'root'], transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: '**/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
    }
    
     stage('Email Notification'){
